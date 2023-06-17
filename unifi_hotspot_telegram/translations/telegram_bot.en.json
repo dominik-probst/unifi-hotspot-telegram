@@ -1,0 +1,16 @@
+{
+    "en":
+    {
+        "register_password_required": "You must provide a password to register this chat.",
+        "register_already_registered": "This chat is already registered.",
+        "register_success": "This chat has been registered successfully.",
+        "register_wrong_password": "The password you provided is wrong.",
+        "start_tooltip": "Welcome. To receive future requests for your guest Wi-Fi, you need to register your chat with /register [password].",
+        "help_tooltip": "This bot allows you to validate your guest Wi-Fi access requests. You can register your chat with /register [password] to receive future requests.",
+        "button_and_check_requests_access_requested":  "%{name} (Device ID: %{mac}) has requested access to the guest Wi-Fi.",
+        "button_access_granted": "The request has been confirmed by %{confirmator} and the device now has access to the guest Wi-Fi for %{duration}.",
+        "button_access_denied": "The request has been denied by %{confirmator}.",
+        "check_requests_deny_access": "Deny access",
+        "check_requests_confirm_access": "Should this person have access and if so, for how long?"
+    }
+}

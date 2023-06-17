@@ -1,0 +1,17 @@
+{
+    "de":
+    {
+    "home_and_wait_title": "Gäste-WLAN-Portal",
+    "home_description": "Willkommen auf unserem Gäste-WLAN-Portal. Bitte geben Sie Ihren Namen ein, um Zugang zu unserem Gäste-WLAN zu beantragen.",
+    "home_terms_of_use_title": "Nutzungsbedingungen",
+    "home_terms_of_use_close": "Schließen",
+    "home_form_name": "Name",
+    "home_form_submit": "Zugang beantragen",
+    "wait_waiting_description": "Bitte warten Sie, bis Ihre Anfrage bestätigt wurde.",
+    "wait_waiting_text": "Warten auf Bestätigung...",
+    "wait_waiting_refresh_text": "Die Seite wird automatisch aktualisiert.",
+    "wait_result_access_permitted": "Sie haben nun Zugang zum Gäste-WLAN für:",
+    "wait_go_online_button": "Online gehen",
+    "wait_result_access_denied": "Sie haben keinen Zugang zum Gäste-WLAN erhalten."
+    }
+}

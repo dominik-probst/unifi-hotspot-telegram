@@ -1,0 +1,17 @@
+{
+    "en":
+    {
+        "home_and_wait_title": "Guest WiFi Portal",
+        "home_description": "Welcome to our Guest WiFi Portal. Please enter your name to request access to our Guest WiFi.",
+        "home_terms_of_use_title": "Terms of Use",
+        "home_terms_of_use_close": "Close",
+        "home_form_name": "Name",
+        "home_form_submit": "Request access",
+        "wait_waiting_description": "Please wait until your request has been confirmed.",
+        "wait_waiting_text": "Waiting for confirmation...",
+        "wait_waiting_refresh_text": "The page will be updated automatically.",
+        "wait_result_access_permitted": "You have been given access to the Guest WiFi for:",
+        "wait_go_online_button": "Go online",
+        "wait_result_access_denied": "Your request was rejected. You will not have access to the Guest WiFi."
+    }
+}

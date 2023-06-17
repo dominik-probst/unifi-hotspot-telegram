@@ -1,0 +1,34 @@
+{
+    "en": {
+      "day": {
+        "zero": "0 days",
+        "one": "1 day",
+        "many": "%{count} days"
+      },
+      "hour": {
+        "zero": "0 hours",
+        "one": "1 hour",
+        "many": "%{count} hours"
+      },
+      "minute": {
+        "zero": "0 minutes",
+        "one": "1 minute",
+        "many": "%{count} minutes"
+      },
+      "week": {
+        "zero": "0 weeks",
+        "one": "1 week",
+        "many": "%{count} weeks"
+      },
+      "month": {
+        "zero": "0 months",
+        "one": "1 month",
+        "many": "%{count} months"
+      },
+      "year": {
+        "zero": "0 years",
+        "one": "1 year",
+        "many": "%{count} years"
+      }
+    }
+}

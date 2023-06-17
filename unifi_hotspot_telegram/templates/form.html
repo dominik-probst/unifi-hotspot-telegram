@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ i18n_manager.translate("guest_portal.home_and_wait_title") }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon.png') }}">
+    <link href="{{ url_for('static', filename='bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #011941 0%, #2575fc 100%);
+        }
+        #terms-of-use h1 {
+            font-size: 16px;
+        }
+        .language-selector {
+            text-align: center;
+        }
+        .language-selector img {
+            width: 20px;
+            cursor: pointer;
+            margin-left: 5px;
+            margin-bottom: 10px;
+        }
+        .language-selector a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-11 col-md-6">
+                <div class="text-center mb-4">
+                    <img src="{{ url_for('static', filename='logo.png') }}" style="width: 50%; max-width: 100%;" alt="WLAN Gastzugang">
+                </div>
+                <div class="card">
+                    <div class="card-header text-center">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="language-selector">
+                            {% for locale in supported_locales %}
+                                <a href="/guest/s/{{ unifi_site_id }}/?id={{ id }}&lang={{ locale }}&url={{ url }}">
+                                    <img src="{{ url_for('static', filename='flags/' + locale + '.png') }}" alt="{{ locale }}">
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <p style="text-align: center;">
+                            {{ i18n_manager.translate("guest_portal.home_description") }}
+                        </p>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#termsModal">{{ i18n_manager.translate("guest_portal.home_terms_of_use_title") }}</button>
+                        </div>
+                        <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="termsModalLabel">{{ i18n_manager.translate("guest_portal.home_terms_of_use_title") }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body" id="terms-of-use">
+                                {{ terms_of_use | safe }}
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ i18n_manager.translate("guest_portal.home_terms_of_use_close") }}</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <form action="/guest/s/{{ unifi_site_id }}/?id={{ id }}&lang={{ locale }}&url={{ url }}" method="post">
+                            <div class="form-group">
+                                <label for="name"  style="text-align: center;"><b>{{ i18n_manager.translate("guest_portal.home_form_name") }}:</b></label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">{{ i18n_manager.translate("guest_portal.home_form_submit") }}</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='jquery/jquery-3.7.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/bootstrap.min.js') }}"></script>
+</body>
+</html>

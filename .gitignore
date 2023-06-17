@@ -1,0 +1,6 @@
+# Ignore folders
+__pycache__/
+
+# Ignore files
+data.db
+settings.json

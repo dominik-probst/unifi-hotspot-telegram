@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ i18n_manager.translate("guest_portal.home_and_wait_title") }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon.png') }}">
+    <link href="{{ url_for('static', filename='bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #011941 0%, #2575fc 100%);
+        }
+    </style>
+    <script src="{{ url_for('static', filename='jquery/jquery-3.7.0.min.js') }}"></script>
+    <script>
+    $(document).ready(function(){
+        function checkUpdate() {
+            $.getJSON('/guest/s/{{ unifi_site_id }}/check_update/{{ unique_id }}?lang={{ locale }}', function(data) {
+                if (data.duration) {
+                    if (data.duration > 0) {
+                        $('#duration-human-readable').text(data.duration_human_readable);
+                        $('#duration').show();
+                    } else {
+                        $('#no-duration').show();
+                    }
+                    $('#waiting').hide();
+                    $('.progress-bar').css('width', '100%').attr('aria-valuenow', 100).text('');
+                } else {
+                    setTimeout(checkUpdate, 1000);
+                }
+            });
+        }
+        checkUpdate();
+    });
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-11 col-md-6">
+                <div class="text-center mb-4">
+                    <img src="{{ url_for('static', filename='logo.png') }}" style="width: 50%; max-width: 100%;" alt="WLAN Gastzugang">
+                </div>
+                <div class="card">
+                    <div class="card-header text-center">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div id="waiting">
+                            <p class="text-center">{{ i18n_manager.translate("guest_portal.wait_waiting_description") }}</p>
+                            <div class="loader text-center">
+                                <div class="spinner-border text-primary" role="status">
+                                  <span class="sr-only">{{ i18n_manager.translate("guest_portal.wait_waiting_text") }}</span>
+                                </div>
+                            </div>
+                            <p class="text-center">{{ i18n_manager.translate("guest_portal.wait_waiting_refresh_text") }}</p>
+                        </div>
+                        <div id="duration" style="display: none;">
+                            <p class="text-center">{{ i18n_manager.translate("guest_portal.wait_result_access_permitted") }}</p>
+                            <p class="text-center font-weight-bold" id="duration-human-readable"></p>
+                            <p class="text-center"><a href="{{ url }}" class="btn btn-primary">{{ i18n_manager.translate("guest_portal.wait_go_online_button") }}</a></p>
+                        </div>
+                        <div id="no-duration" style="display: none;">
+                            <p class="text-center">{{ i18n_manager.translate("guest_portal.wait_result_access_denied") }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
