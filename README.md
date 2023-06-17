@@ -23,7 +23,7 @@ Prerequisites: `git` and `python`
 1. Clone the repository:
 
    ```
-   git clone
+   git clone https://github.com/dominik-probst/unifi-hotspot-telegram.git
    ```
 
 2. Install the required dependencies:
